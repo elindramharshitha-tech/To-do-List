@@ -1,0 +1,26 @@
+function addTask()
+{
+    const input = document.getElementById("tasks").value.trim()
+    if(input=="")
+    {
+        alert("Please enter a task")
+        return
+    }
+    const newTask = document.createElement("li")
+    const taskList = document.getElementById("taskList")
+    taskList.appendChild(newTask)
+    newTask.textContent = document.getElementById("tasks").value
+    document.getElementById("tasks").value = ""
+    deleteTask(newTask)
+}
+function deleteTask(newTask)
+{
+    const deleteBtn = document.createElement('button')
+    deleteBtn.textContent="Delete"
+    newTask.appendChild(deleteBtn)
+    deleteBtn.onclick=function()
+    {
+      newTask.remove()
+    }
+
+}
